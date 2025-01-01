@@ -1,26 +1,27 @@
 {% set name = "qastle" %}
 {% set version = "0.18.0" %}
+{% set python_min = "3.8" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/qastle-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/qastle-{{ version }}.tar.gz
   sha256: 517075f4071bc5efe91670f6c21be2e60bea1ba9e5723e07a18111160e5377db
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.6,<3.13
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >=3.6,<3.13
+    - python >={{ python_min }},<3.14
     - lark
 
 test:
@@ -30,6 +31,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/iris-hep/qastle
