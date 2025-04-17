@@ -1,5 +1,5 @@
 {% set name = "qastle" %}
-{% set version = "0.18.0" %}
+{% set version = "0.18.1" %}
 {% set python_min = "3.8" %}
 
 package:
@@ -8,12 +8,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/qastle-{{ version }}.tar.gz
-  sha256: 517075f4071bc5efe91670f6c21be2e60bea1ba9e5723e07a18111160e5377db
+  sha256: a4a2a4b296e0cd8031288b41e738d6e3783fc6d4b6dc2dbe45a7f26ff73a6b53
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
