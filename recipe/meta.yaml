@@ -1,6 +1,6 @@
 {% set name = "qastle" %}
 {% set version = "0.20.0" %}
-{% set python_min = "3.8" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -21,7 +21,7 @@ requirements:
     - pip
     - setuptools
   run:
-    - python >={{ python_min }},<3.14
+    - python >={{ python_min }},<3.16
     - lark
 
 test:
